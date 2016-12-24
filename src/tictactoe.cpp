@@ -1,5 +1,4 @@
 #include "tictactoe.h"
-
 void tictactoe::doTurn(int spot){
     if((m_board>>spot)%2){
         std::cout<<"choose another"<<std::endl;
@@ -14,7 +13,7 @@ void tictactoe::doTurn(int spot){
 }
 char tictactoe::checkWin(){
     if(m_board==0b111111111) return 3;
-    std::vector<short> possibleWins{0b111000000,0b000111000,0b000000111,0b100100100,0b010010010,0b001001001,0b100010001,0b001010001};
+    std::vector<short> possibleWins{0b111000000,0b000111000,0b000000111,0b100100100,0b010010010,0b001001001,0b100010001,0b001010100};
     for(auto& i:possibleWins){
         if((m_Xs&i)==i)
             return 2;
@@ -35,4 +34,5 @@ void tictactoe::printBoard(){
             std::cout<<boardy[x*3+y]<<"|"<<std::flush;
         }std::cout<<std::endl;
     }
+    std::cout<<m_Os<<" "<<m_Xs<<std::endl;
 }
